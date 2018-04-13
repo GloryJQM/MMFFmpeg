@@ -8,6 +8,19 @@
 
 #import "MMFFpegViewController.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+#include "libavutil/opt.h"
+#include "libavcodec/avcodec.h"
+#include "libavformat/avformat.h"
+#include "libswscale/swscale.h"
+    
+#ifdef __cplusplus
+};
+#endif
+
 @interface MMFFpegViewController ()
 
 @end
@@ -17,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    av_register_all();
 }
 
 - (void)didReceiveMemoryWarning {
